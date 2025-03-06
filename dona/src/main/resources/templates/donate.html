@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form for Second-Hand Items</title>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	
+
+   
+</head>
+<body>
+
+<div class="donation-form">
+    <h2 class="text-center">Donate Second-Hand Items</h2>
+    <form action="/submit-donation" method="POST" enctype="multipart/form-data">
+		<img th:src="@{'/' + ${donation.imagePath}}" alt="Donated Item" width="150">
+
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Your Address:</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="state" name="state" placeholder="State" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="zip" name="zip" placeholder="Zip Code" required>
+        </div>
+        <div class="form-group">
+            <label for="itemDescription">Item Description:</label>
+            <textarea class="form-control" id="itemDescription" name="itemDescription" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="itemImage">Upload Image of the Item:</label>
+            <input type="file" class="form-control-file" id="itemImage" name="itemImage" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Donate Item</button>
+    </form>
+</div>
+
+</body>
+</html>
